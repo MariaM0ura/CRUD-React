@@ -18,7 +18,7 @@ const CreatProduct = () => {
             return;
         }
 
-        const produto = { nome, preco, descricao, disponivel };
+        const produto = { nome, preco: Number(preco), descricao, disponivel };
 
         fetch('http://localhost:8000/Produtos', {
             method: 'POST',

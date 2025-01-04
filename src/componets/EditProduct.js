@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
 const EditProduct = () => {
-  const { id } = useParams(); // Obtém o ID da URL
-  const navigate = useNavigate(); // Para redirecionar o usuário após salvar
+  const { id } = useParams(); 
+  const navigate = useNavigate();
   const [produto, setProduto] = useState({
     nome: '',
     preco: '',
     descricao: '',
-    disponivel: 'true',
+    disponivel: true, 
   });
 
   // Carregar dados do produto ao montar o componente
@@ -16,23 +16,27 @@ const EditProduct = () => {
     fetch(`http://localhost:8000/Produtos/${id}`)
       .then((response) => response.json())
       .then((data) => {
-        setProduto(data);
+        setProduto({
+          ...data,
+          disponivel: data.disponivel === 'true' || data.disponivel === true, 
+        });
       })
       .catch((error) => console.error('Erro ao carregar produto:', error));
   }, [id]);
-  
 
+  // Atualizar estado ao modificar os campos
   const handleChange = (e) => {
     const { name, value } = e.target;
     setProduto((prevProduto) => ({
       ...prevProduto,
-      [name]: name === 'disponivel' ? value === 'true' : value,
+      [name]: name === 'disponivel' ? value === 'true' : value, 
     }));
   };
 
   // Submeter o formulário
   const handleSubmit = (e) => {
     e.preventDefault();
+
     fetch(`http://localhost:8000/Produtos/${id}`, {
       method: 'PUT',
       headers: {
@@ -53,7 +57,7 @@ const EditProduct = () => {
 
   return (
     <div className="container">
-      <h1>Editar produto </h1>
+      <h1>Editar produto</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="nome" className="form-label">Nome</label>
@@ -99,7 +103,7 @@ const EditProduct = () => {
               className="form-check-input"
               name="disponivel"
               id="disponivelSim"
-              value="sim"
+              value="true"
               checked={produto.disponivel === true}
               onChange={handleChange}
             />
@@ -111,7 +115,7 @@ const EditProduct = () => {
               className="form-check-input"
               name="disponivel"
               id="disponivelNao"
-              value="nao"
+              value="false"
               checked={produto.disponivel === false}
               onChange={handleChange}
             />
