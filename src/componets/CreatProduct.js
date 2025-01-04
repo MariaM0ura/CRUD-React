@@ -1,11 +1,35 @@
 import React from 'react'
 
 const CreatProduct = () => {
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const nome = event.target.nome.value;
+        const preco = event.target.preco.value;
+        const descricao = event.target.descricao.value;
+        const disponivel = event.target.disponivel.value === 'sim';
+
+        const produto = { nome, preco, descricao, disponivel };
+
+        fetch('http://localhost:8000/Produtos', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(produto),
+        })
+            .then(() => {
+                alert('Produto cadastrado com sucesso!');
+                window.location.href = '/';
+            })
+            .catch((error) => console.log(error));
+    }
+
+
   return (
     <div className='container'>
         <h1> Cadastro de Novo Produto</h1>
 
-        <form>
+        <form onSubmit={handleSubmit}>
             <div className='mb-3'>
                 <label htmlFor='nome' className='form-label'>Nome</label>
                 <input type='text' className='form-control' id='nome' />
@@ -21,13 +45,34 @@ const CreatProduct = () => {
                 <input type='text' className='form-control' id='descricao' />
             </div>
 
-            <div className='mb-3 form-check'>
-                <input type='checkbox' className='form-check-input' id='disponivel' />
-                <label className='form-check-label' htmlFor='disponivel'>Disponível para venda</label>
+            <div className='mb-3'>
+                <label className='form-label'>Disponível para venda</label>
+                <div className='form-check'>
+                    <input 
+                    type='radio' 
+                    className='form-check-input' 
+                    name='disponivel' 
+                    id='disponivelSim' 
+                    value='sim' 
+                    />
+                    <label className='form-check-label' htmlFor='disponivelSim'>Sim</label>
+                </div>
+                <div className='form-check'>
+                    <input 
+                    type='radio' 
+                    className='form-check-input' 
+                    name='disponivel' 
+                    id='disponivelNao' 
+                    value='nao' 
+                    />
+                    <label className='form-check-label' htmlFor='disponivelNao'>Não</label>
+                </div>
             </div>
-
-            <button type='submit' className='btn btn-primary'>Salvar</button>
+            <button type='submit' className='btn btn-primary' >Salvar</button>
         </form>
+
+        <a href="/" className='btn btn-danger'>Voltar</a>
+
     </div>
   )
 }
