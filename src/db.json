@@ -13,6 +13,20 @@
       "preco": "40",
       "descricao": "Descrição do produto 4",
       "disponivel": false
+    },
+    {
+      "id": "35c4",
+      "nome": "Produto 5",
+      "preco": "50",
+      "descricao": "Descrição do produto 5",
+      "disponivel": false
+    },
+    {
+      "id": "27f8",
+      "nome": "Produto 2",
+      "preco": "20",
+      "descricao": "Descrição do produto 2",
+      "disponivel": false
     }
   ]
 }

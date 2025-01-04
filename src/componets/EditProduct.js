@@ -8,7 +8,7 @@ const EditProduct = () => {
     nome: '',
     preco: '',
     descricao: '',
-    disponivel: '',
+    disponivel: 'true',
   });
 
   // Carregar dados do produto ao montar o componente
@@ -118,7 +118,7 @@ const EditProduct = () => {
             <label className="form-check-label" htmlFor="disponivelNao">Não</label>
           </div>
         </div>
-        <button type="submit" className="btn btn-outline-success">Salvar</button>
+        <button type="submit" className="btn btn-success">Salvar</button>
       </form>
       <a href="/" className="btn btn-outline-danger mt-3">Voltar</a>
     </div>

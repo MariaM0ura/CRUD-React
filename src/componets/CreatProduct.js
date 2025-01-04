@@ -3,10 +3,20 @@ import React from 'react'
 const CreatProduct = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
-        const nome = event.target.nome.value;
-        const preco = event.target.preco.value;
-        const descricao = event.target.descricao.value;
+        const nome = event.target.nome.value.trim();
+        const preco = event.target.preco.value.trim();
+        const descricao = event.target.descricao.value.trim();
         const disponivel = event.target.disponivel.value === 'sim';
+
+        if(!nome || !preco || !descricao || !disponivel) {
+            alert('Todos os campos devem ser preenchidos!');
+            return;
+        }
+
+        if(isNaN(preco)) {
+            alert('O campo preço deve ser um número!');
+            return;
+        }
 
         const produto = { nome, preco, descricao, disponivel };
 
