@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
 
 const Home = () => {
   const [produtos, setProdutos] = useState([]);
@@ -39,6 +41,11 @@ const Home = () => {
       .catch((error) => console.log(error));
   }
 
+  const handleEdit = (id) => {
+    window.location.href = `/EditProduct/${id}`;
+  }
+  
+
   return (
     <div className='container title'>
       <h1>Cadastro e Listagem de Produtos</h1>
@@ -48,10 +55,14 @@ const Home = () => {
           <thead>
             <tr>
               <th onClick={() => handleSort('nome')} style={{ cursor: 'pointer' }}>
-                Nome {sortConfig.key === 'nome' ? (sortConfig.direction === 'asc' ? '↑' : '↓') : ''}
+                Nome {sortConfig.key === 'nome' && (
+                  <i className={`ms-2 bi ${sortConfig.direction === 'asc' ? 'bi-arrow-up' : 'bi-arrow-down'}`}></i>
+                )}
               </th>
               <th onClick={() => handleSort('preco')} style={{ cursor: 'pointer' }}>
-                Preço {sortConfig.key === 'preco' ? (sortConfig.direction === 'asc' ? '↑' : '↓') : ''}
+                Preço {sortConfig.key === 'preco' && (
+                  <i className={`ms-2 bi ${sortConfig.direction === 'asc' ? 'bi-arrow-up' : 'bi-arrow-down'}`}></i>
+                )}
               </th>
               <th>Descrição</th>
               <th>Disponível para venda</th>
@@ -67,7 +78,8 @@ const Home = () => {
                 <td>{produto.descricao}</td>
                 <td>{produto.disponivel ? 'Sim' : 'Não'}</td>
                 <td>
-                  <button className="btn btn-sm btn-danger ms-2" onClick={() => handleDelete(produto.id)}>Excluir</button>
+                  <button className="btn btn-sm btn-outline-primary ms-2" onClick={() => handleEdit(produto.id)}>Editar</button>
+                  <button className="btn btn-sm btn-outline-danger ms-2" onClick={() => handleDelete(produto.id)}>Excluir</button>
                 </td>
               </tr>
             ))}
