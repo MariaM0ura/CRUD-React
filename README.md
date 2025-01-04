@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# Projeto CRUD com React e JSON Server
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este projeto é uma aplicação React que utiliza o `json-server` para simular uma API RESTful, permitindo que você desenvolva e teste a aplicação com dados mockados localmente.
 
-## Available Scripts
+## Tecnologias Utilizadas
 
-In the project directory, you can run:
+- React
+- json-server
+- concurrently
 
-### `npm start`
+## Instruções de Instalação
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 1. Clonando o repositório
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Clone este repositório para o seu diretório local:
 
-### `npm test`
+```bash
+git clone https://github.com/username/seu-projeto.git
+cd seu-projeto
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 2. Instalando as dependências
 
-### `npm run build`
+Instale as dependências do projeto com o comando:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Isso instalará todas as dependências necessárias para o React e o `json-server`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 3. Configurando os scripts
 
-### `npm run eject`
+Para rodar os servidores React e `json-server` simultaneamente, usamos o pacote `concurrently`. Se você ainda não o tiver, instale-o com o comando:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm install concurrently --save-dev
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 4. Executando o projeto
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Agora, para iniciar ambos os servidores (React e `json-server`), basta rodar o seguinte comando:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm run dev
+```
 
-## Learn More
+Isso executará dois comandos simultaneamente:
+- O servidor de desenvolvimento do React (por padrão na porta 3000).
+- O `json-server` servindo a API simulada, usando o arquivo `src/db.json` e rodando na porta 8000.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 5. Acessando a aplicação
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- A aplicação React estará disponível em: [http://localhost:3000](http://localhost:3000)
+- O servidor `json-server` estará disponível em: [http://localhost:8000](http://localhost:8000)
 
-### Code Splitting
+## Scripts
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- `npm start`: Inicia o servidor de desenvolvimento do React.
+- `json-server --watch src/db.json --port 8000`: Inicia o servidor do json-server na porta 8000.
+- `npm run dev`: Inicia ambos, o servidor React e o `json-server`, ao mesmo tempo.
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Contribuição
 
-### Making a Progressive Web App
+Se você deseja contribuir com este projeto, fique à vontade para abrir uma *pull request* ou relatar problemas.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Obrigado por utilizar este repositório! 😊
