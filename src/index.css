@@ -71,3 +71,19 @@ h1 {
   border-bottom: 1px solid #dee2e6;
 }
 
+
+.table thead th {
+  background-color: #D9EAFD; /* Cor para o cabeçalho */
+  color: #343a40;
+}
+
+
+.table tbody td:first-child {
+  background-color: #F8FAFC; /* Cor para a coluna principal */
+  font-weight: bold;
+}
+
+.table tbody td {
+  vertical-align: middle; 
+}
+

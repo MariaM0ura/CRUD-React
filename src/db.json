@@ -5,7 +5,7 @@
       "nome": "Produto 1",
       "descricao": "Descrição do Produto 1",
       "preco": 10,
-      "disponivel": true
+      "disponivel": false
     },
     {
       "id": "e862",

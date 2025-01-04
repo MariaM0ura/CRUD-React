@@ -78,10 +78,12 @@ const CreatProduct = () => {
                     <label className='form-check-label' htmlFor='disponivelNao'>Não</label>
                 </div>
             </div>
-            <button type='submit' className='btn btn-primary' >Salvar</button>
+            <div className="d-flex justify-content-start gap-2">
+                <button type="submit" className="btn btn-success">Salvar</button>
+                <a href="/" className="btn btn-outline-danger">Voltar</a>
+            </div>  
         </form>
 
-        <a href="/" className='btn btn-danger'>Voltar</a>
 
     </div>
   )
