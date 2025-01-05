@@ -15,8 +15,8 @@ Este projeto é uma aplicação React que utiliza o `json-server` para simular u
 Clone este repositório para o seu diretório local:
 
 ```bash
-git clone https://github.com/username/seu-projeto.git
-cd seu-projeto
+git clone [https://github.com/MariaM0ura/crud]
+cd crud
 ```
 
 ### 2. Instalando as dependências
